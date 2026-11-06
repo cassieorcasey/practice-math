@@ -22,6 +22,8 @@ It covers every topic from high school through university and writes all math in
 practice-math/SKILL.md        English skill
 latihan-matematika/SKILL.md   Indonesian skill (Bahasa Indonesia)
 EXAMPLES.md                   Example sessions
+problems/PROBLEMS.md          36 practice problems in six topics
+problems/ANSWERS.md           Answer key
 ```
 
 Install one of the two skills, not both. They contain the same rules.
@@ -51,7 +53,9 @@ To reveal the full solution after at least one attempt, type:
 | `practice-math` | `show solution`, `I give up` |
 | `latihan-matematika` | `buka solusi`, `menyerah` |
 
-See [EXAMPLES.md](EXAMPLES.md) for full sessions: a calculation with a mistake, a proof by induction, and revealing a solution.
+See [EXAMPLES.md](EXAMPLES.md) for seven full sessions, including a calculation with a mistake, a proof by induction, a word problem, and revealing a solution.
+
+Need something to practice on? [problems/PROBLEMS.md](problems/PROBLEMS.md) has 36 problems in algebra, discrete math, calculus, probability and statistics, linear algebra, and geometry, at three difficulty levels. Paste one into Claude and work through it. The answers are in [problems/ANSWERS.md](problems/ANSWERS.md).
 
 ## License
 

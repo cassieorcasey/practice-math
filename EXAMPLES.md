@@ -1,6 +1,6 @@
 # Example sessions
 
-Three sessions showing how the skill behaves. Each AI turn gives one hint or one step and ends with one task. Section numbers (§) refer to the rules in [`practice-math/SKILL.md`](practice-math/SKILL.md).
+Seven sessions showing how the skill behaves. Each AI turn gives one hint or one step and ends with one task. Section numbers (§) refer to the rules in [`practice-math/SKILL.md`](practice-math/SKILL.md).
 
 ## 1. A calculation, with a mistake
 
@@ -93,3 +93,75 @@ Covers the escape hatch (§3): the user tried once, then asked for the solution.
 > Now try a similar one with the same idea: how many ways can you choose 2 people from a group of 6? What's your first step?
 
 The AI revealed the solution only because the user had made an attempt. The follow-up problem comes without its answer, so the normal flow starts again.
+
+## 4. A word problem
+
+Covers building the model before any arithmetic (§9).
+
+> **User:** An adult ticket costs 3 times as much as a child ticket. Two adults and three children pay \$54 in total. How much is a child ticket?
+>
+> **AI:** Before writing an equation, pick a variable. What unknown will you name, and what does it stand for?
+>
+> **User:** Let $c$ be the price of a child ticket in dollars.
+>
+> **AI:** Good, with the unit stated. Using $c$, how would you write the price of one adult ticket?
+>
+> **User:** $3c$.
+>
+> **AI:** Now write the total that two adults and three children pay, and set it equal to 54.
+>
+> **User:** $2 \cdot 3c + 3c = 54$, so $9c = 54$ and $c = 6$.
+>
+> **AI:** Check it against the story: with $c = 6$, what does one adult ticket cost, and does the total come to \$54?
+>
+> **User:** Adult is \$18. $2 \cdot 18 + 3 \cdot 6 = 36 + 18 = 54$. Yes.
+>
+> **AI:** A child ticket is \$6. The hard part of word problems is the translation, and you named the variable with its unit before writing anything, which is what made the rest easy.
+
+## 5. Only a final answer
+
+Covers asking for steps (§6) and catching a wrong method (§4, §5).
+
+> **User:** The derivative of $x^2 \sin x$ is $2x \cos x$, right?
+>
+> **AI:** Walk me through how you got that. What did you do first?
+>
+> **User:** The derivative of $x^2$ is $2x$, and the derivative of $\sin x$ is $\cos x$. Then I multiplied them.
+>
+> **AI:** Both of those derivatives are correct. The issue is in the last move. $x^2 \sin x$ is a product of two functions. Is the derivative of a product the product of the derivatives?
+>
+> **User:** Oh. No, that's the product rule. $(uv)' = u'v + uv'$.
+>
+> **AI:** Right. Apply it with $u = x^2$ and $v = \sin x$. What do you get?
+>
+> **User:** $2x \sin x + x^2 \cos x$.
+>
+> **AI:** That's correct. The trap here is the one you hit: differentiating each factor separately and multiplying. It looks natural, but it only works for sums, not products.
+
+## 6. Asking for a practice problem
+
+Covers problems written by the AI (§11). The AI solved the problem silently before sending it, and sends no hint or answer with it.
+
+> **User:** Give me a medium probability problem.
+>
+> **AI:** Here's one:
+>
+> A bag holds 3 red and 5 blue marbles. Two marbles are drawn without replacement. What is the probability that both are red?
+>
+> What does "without replacement" change about the second draw?
+
+## 7. A frustrated user
+
+Covers the relaxed rules for frustration. The user has already made attempts, so the escape hatch (§3) is open, but the AI does not open it without the phrase.
+
+> **User:** I've been stuck on this integral for 20 minutes. I'm so bad at this. Just tell me.
+>
+> **AI:** Twenty minutes on integration by parts is normal; it's one of the harder techniques to get comfortable with. Let's make the step smaller. In $\int x \cos x \, dx$, you need to choose $u$. Which of the two factors gets simpler when you differentiate it: $x$ or $\cos x$?
+>
+> **User:** $x$, it becomes 1.
+>
+> **AI:** Exactly, so $u = x$. That leaves $dv = \cos x \, dx$. What is $v$?
+>
+> **User:** $\sin x$.
+>
+> **AI:** Good, you now have every piece. Plug them into $uv - \int v \, du$. If you'd rather see the full solution now, type `show solution`; you've earned it with your attempts.
